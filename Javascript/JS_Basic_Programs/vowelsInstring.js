@@ -2,7 +2,7 @@
 let str = "kushal";
 let count=0;
 for(var i=0; i<str.length; i++){
-  if(str[i] == "a" || str[i] == "e" || str[i] == "i" || str[i] == "o" || str[i] == "u"){
+  if(str[i] == ("a"||"A") || str[i] == ("e"||"E") || str[i] == ("i"||"I") || str[i] == ("o"||"O") || str[i] == ("u"||"U")){
     count = count + 1; 
   }
 }
