@@ -1,0 +1,37 @@
+ p::first-letter {
+      font-size: 200%;
+      color: red;
+    }
+
+    p::first-line {
+      font-weight: bold;
+      font-variant: small-caps;
+    }
+
+    p::before {
+      content: "★ ";
+      color: gold;
+    }
+
+    p::after {
+      content: " ✔";
+      color: green;
+    }
+
+    ::selection {
+      background: yellow;
+      color: black;
+    }
+
+    input::placeholder {
+      color: gray;
+      font-style: italic;
+    }
+
+    li::marker {
+      color: blue;
+    }
+
+    dialog::backdrop {
+      background-color: rgba(0.5, 0.5, 0.5, 0.5);
+    }

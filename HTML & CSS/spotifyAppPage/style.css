@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+}
+.header {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #000000;
+}
+.header > a {
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+}
+.header > .link-one {
+  margin-right: auto;
+}
+.main-section {
+  display: flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  background-color: #121212;
+  padding: 50px 0;
+}
+.blog {
+  margin: 10px;
+  margin-left: 30px;
+  color: white;
+}
+.blog >img {
+  border-radius:20px;
+}
+.blog > p {
+  line-height: 25px;
+}
+ol > li {
+  padding: 10px;
+}
+.main-section > form {
+  
+  padding: 20px;
+  background-color: #eeeeee;
+  max-width: 400px;
+  min-width: 150px;
+  margin: 10px;
+  border-radius: 15px;
+}
+.main-section > form > label {
+  display: block;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.main-section > form > input,
+select {
+  /*   color:white; */
+  width: 90%;
+  height: 30px;
+  border-radius: 5px;
+  margin: 10px;
+}
+.main-section > form > p {
+  margin: 10px;
+}
+.main-section > form > .btn {
+  background-color: #228274;
+  color: white;
+  display: block;
+  margin: 0 auto;
+  padding: 10px 30px;
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+}
+
+.main-section > .blog,
+form {
+  width: 100vh;
+}
+
+/* .about-us{
+  display:flex;
+  justify-content:space-around;
+}
+.info-one{
+  display:inline-block;
+  flex-direction:column;
+} */
+.footer {
+  background-color: #000000;
+  color: #fff;
+  padding: 40px 20px;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+}
+
+.footer-column {
+  flex: 1;
+  min-width: 150px;
+  margin: 10px;
+}
+
+.footer-column h3 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  padding-bottom: 5px;
+}
+
+.footer-column ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-column ul li a:hover {
+  color: #fff;
+}
+.footer-column > .request-btn {
+  color: black;
+  background-color: rgb(155, 240, 225);
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 15px;
+  cursor:pointer;
+}
+
+.social-icons{
+  display:flex;
+  justify-content:center;
+  margin:20px
+}
+.social-icons > a{
+  color:white;
+  padding:10px;
+}

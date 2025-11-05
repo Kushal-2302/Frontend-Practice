@@ -1,0 +1,29 @@
+.header,
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: brown;
+  color: white;
+  height: 70px;
+}
+.main-container {
+  color: white;
+  display: flex;
+  margin: 10px 0;
+  height: 70vh;
+}
+.container {
+  text-align: center;
+  flex-grow: 3;
+  background-color: purple;
+  padding: 0 50px;
+  padding: 0 100px;
+  margin: 0 10px;
+}
+.content {
+  text-align: center;
+  flex-grow: 1;
+  background-color: pink;
+  padding: 0 20px;
+}

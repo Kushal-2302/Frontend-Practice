@@ -1,0 +1,88 @@
+
+    /* :hover — when mouse is over */
+    button:hover {
+      background-color: lightblue;
+/*       color:white; */
+      padding: 20px;
+/*       transition:1s; */
+      border-radius:100%;
+    }
+button:focus{
+  color:red;
+}
+
+    /* :active — when clicked */
+    button:active {
+      background-color: darkblue;
+      color: white;
+    }
+
+    /* :focus — when input is focused */
+    input:focus {
+      background-color:red;
+      padding:10px;
+      border: 10px solid green;
+    }
+
+    /* :checked — for radio/checkbox */
+    input[type="checkbox"]:checked {
+      outline: 2px solid green;
+     
+    }
+
+    /* :disabled — for disabled elements */
+    input:disabled {
+      background-color: #eee;
+      color: gray;
+    }
+
+    /* :first-child — first child of a parent */
+    li:first-child {
+      font-weight: bold;
+    }
+
+    /* :last-child — last child of a parent */
+    li:last-child {
+      font-style: italic;
+    }
+
+    /* :nth-child(n) — nth child */
+    li:nth-child(2) {
+      color: blue;
+    }
+
+    /* :not(selector) — exclude elements */
+    p:not(#highlight) {
+      color: red;
+    }
+
+    /* :empty — elements with no content */
+    div:empty {
+      height: 20px;
+      background-color: pink;
+    }
+
+    /* :visited — visited links */
+    .first:visited {
+      color: red;
+    }
+
+    /* :link — unvisited links */
+    .second:link {
+      color: green;
+    }
+
+    /* :required — required input fields */
+    input:required {
+      border: 2px dashed orange;
+    }
+
+    /* :valid / :invalid — form validation */
+    input:valid {
+      background-color: #cfc;
+    }
+
+    input:invalid {
+      background-color: red;
+    }
+ 
