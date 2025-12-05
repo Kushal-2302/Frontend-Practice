@@ -1,0 +1,24 @@
+/* src/index.css - add these styles if not present */
+.app {
+  padding: 24px;
+  text-align: center;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: white;
+  cursor: pointer;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-gap: 10px;
+  justify-content: center;
+  /* margin-top: 12px; */
+}
+
