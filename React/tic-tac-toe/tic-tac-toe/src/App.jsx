@@ -149,7 +149,7 @@ function App() {
   } else if (isDraw) {
     status = "It's a Draw!";
   } else {
-    status = `Next: ${xIsNext ? "X" : "O"}`;
+    status = `Next player : ${xIsNext ? "X" : "O"}`;
   }
 
   return (
@@ -172,6 +172,7 @@ function App() {
       {/* Player Profile */}
       <div className="game-container"
         style={{
+          margin: "30px",
           display: "flex",
           justifyContent: "space-around",
           padding: "10px",
@@ -246,10 +247,7 @@ function App() {
       </div>
     </div>
 
-
   );
-
-
 
 }
 
