@@ -32,10 +32,25 @@ function App() {
   const [xIsNext, setXIsNext] = useState(true); // track which player's turn it is
 
   // ---------------- NEW: players state ----------------
-  const [players, setPlayers] = useState([
-    { id: "X", name: "Player X", wins: 0, losses: 0, draws: 0, matches: 0 },
-    { id: "O", name: "Player O", wins: 0, losses: 0, draws: 0, matches: 0 },
-  ]);
+  const [players, setPlayers] = useState(() => {
+    const stored = localStorage.getItem("players");
+    if (stored) return JSON.parse(stored);
+
+    // fallback initial state
+    return [
+      { id: "X", name: "Player X", wins: 0, losses: 0, draws: 0, matches: 0 },
+      { id: "O", name: "Player O", wins: 0, losses: 0, draws: 0, matches: 0 },
+    ];
+  });
+
+  // Theme state (light by default)
+  const [theme, setTheme] = useState(() => {
+    try {
+      return localStorage.getItem("theme") || "light";
+    } catch {
+      return "light";
+    }
+  });
 
   const winner = calculateWinner(squares); // check if there's a winner
   const isDraw = !winner && squares.every((square) => square !== null); // check for draw
@@ -102,6 +117,31 @@ function App() {
     );
   }
 
+  // Plaer name update
+
+  function updatePlayerName(id, newName) {
+    setPlayers(
+      (prev) => prev.map((p) => (p.id === id ? { ...p, name: newName } : p)) // update name for matching id
+    );
+  }
+
+  useEffect(() => {
+    localStorage.setItem("players", JSON.stringify(players)); // save to localStorage
+  }, [players]);
+
+  // Theme effect
+  useEffect(() => {
+    const root = document.documentElement;
+    if (theme === "dark") {
+      root.classList.add("dark");
+    } else {
+      root.classList.remove("dark");
+    }
+    try {
+      localStorage.setItem("theme", theme);
+    } catch {}
+  }, [theme]);
+
   let status;
 
   if (winner) {
@@ -113,66 +153,77 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <h1>Tic-Tac-Toe</h1>
-
+    <div className="app container">
+      {" "}
+      {/* container + app (matches CSS) */}
+      {/* Theme toggle button (paste near your controls) */}
+      <button
+        className="btn ghost"
+        style={{ minWidth: 110 }}
+        onClick={() => setTheme((prev) => (prev === "dark" ? "light" : "dark"))}
+      >
+        Theme: {theme === "dark" ? "Dark" : "Light"}
+      </button>
+      <h1 className="title">Tic Tac Toe</h1>
       <div className="status">{status}</div>
-
       {/* <div className="status">
         Next Player: {xIsNext ? "X" : "O"}
       </div> */}
-
       {/* Player Profile */}
-      <div
+      <div className="game-container"
         style={{
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "space-around",
           padding: "10px",
           gap: "20px",
         }}
       >
-        <PlayerProfile
-          id={players[0].id}
-          name={players[0].name}
-          wins={players[0].wins}
-          losses={players[0].losses}
-          draws={players[0].draws}
-          matches={players[0].matches}
-        />
-
-        {/* Center BOARD area (placeholder for now) */}
-        <div>
-          <h3 style={{ textAlign: "center", marginBottom: "10px" }}>Board</h3>
+        <div className="top-row">
+          {" "}
+          {/* top-row: left profile, center, right profile */}
+          {/* Left player */}
+          <PlayerProfile
+            id={players[0].id}
+            name={players[0].name}
+            wins={players[0].wins}
+            losses={players[0].losses}
+            draws={players[0].draws}
+            matches={players[0].matches}
+            onNameChange={(newName) => updatePlayerName("X", newName)}
+          />
+          {/* Center BOARD area (placeholder for now) */}
           <div>
-            {/* Render a few Square components to see how they repeat */}
-            <div className="grid-container">
-              {squares.map(
-                (
-                  value,
-                  index // iterate over the squares array
-                ) => (
-                  <Square
-                    key={index} // unique key for each Square
-                    value={value} // pass the value to the Square component
-                    onClick={() => handleClick(index)} // pass the click handler
-                  />
-                )
-              )}
+            {/* <h3 style={{ textAlign: "center", marginBottom: "10px" }}>Board</h3> */}
+            <div>
+              {/* Render a few Square components to see how they repeat */}
+              <div className="grid-container">
+                {squares.map(
+                  (
+                    value,
+                    index // iterate over the squares array
+                  ) => (
+                    <Square
+                      key={index} // unique key for each Square
+                      value={value} // pass the value to the Square component
+                      onClick={() => handleClick(index)} // pass the click handler
+                    />
+                  )
+                )}
+              </div>
             </div>
           </div>
+          {/* Right Player */}
+          <PlayerProfile
+            id={players[1].id}
+            name={players[1].name}
+            wins={players[1].wins}
+            losses={players[1].losses}
+            draws={players[1].draws}
+            matches={players[1].matches}
+            onNameChange={(newName) => updatePlayerName("O", newName)}
+          />
         </div>
-
-        {/* Right Player */}
-        <PlayerProfile
-          id={players[1].id}
-          name={players[1].name}
-          wins={players[1].wins}
-          losses={players[1].losses}
-          draws={players[1].draws}
-          matches={players[1].matches}
-        />
       </div>
-
       {/* NEW GAME button placed below the grid */}
       <div
         style={{
@@ -182,7 +233,7 @@ function App() {
           justifyContent: "center",
         }}
       >
-        <button
+        <button className="btns btn-newGame"
           onClick={() => {
             setSquares(Array(9).fill(null)); // reset squares
             setXIsNext(true); // reset to X's turn
@@ -191,10 +242,15 @@ function App() {
           New Game
         </button>
 
-        <button onClick={resetPlayerStats}>Reset Scores</button>
+        <button className="btns btn-reset" onClick={resetPlayerStats}>Reset Scores</button>
       </div>
     </div>
+
+
   );
+
+
+
 }
 
 export default App;
