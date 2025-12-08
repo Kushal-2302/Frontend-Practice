@@ -1,0 +1,20 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.todo{
+  /* border: 1px solid red; */
+  background-color: lightgray;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.todo-items {
+  margin-top: 20px;
+  padding: 10px 0;
+  background-color: lightyellow;
+  border-radius: 5px;
+}

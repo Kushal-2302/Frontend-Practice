@@ -5,6 +5,7 @@ const BASE_URL = "https://jsonplaceholder.typicode.com/users";
 
 // 2. Get reference to the output area and input box (HTML elements)
 const outputElement = document.getElementById("output");
+console.log("Output Element:", outputElement);
 const userIdInput = document.getElementById("userIdInput");
 
 // Small helper to show messages on the screen
