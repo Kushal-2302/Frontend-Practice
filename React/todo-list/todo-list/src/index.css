@@ -68,7 +68,7 @@ button:focus-visible {
 }
 
 
-
+/* 
 .form > input {
   width: 250px;
   padding: 8px 16px;
@@ -99,7 +99,6 @@ button:focus-visible {
   align-items: center;
   padding: 8px 16px;
   margin: 8px 16px;
-  /* width: 400px; */
   font-size: large;
   border: 1px solid gray;
   border-radius: 5px;
@@ -122,4 +121,4 @@ button:focus-visible {
   background-color: red;
   color: white;
   padding: 8px 16px;
- }
+ } */

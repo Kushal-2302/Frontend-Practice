@@ -1,12 +1,18 @@
+import { useState } from "react";
 
+export default function TodoItem({todo, onDelete}) {
 
-export default function TodoItem() {
-    return (
-        <div className="todo-item">
-            <span id="id">1.</span>
-            <span className="description">Sample Todo Item Lorem ipsum dolor sit amet.</span>
+  return (
+    <div>
+      {todo.map((item) => {
+        return (
+          <div style={{display:"flex"}}>
+            <p>{item.id} - {item.content}</p>
             <input type="checkbox" />
-            <button>Delete</button>
-        </div>
-    )
+            <button onClick={() => onDelete(item.id)}>Delete</button>
+          </div>
+        );
+      })}
+    </div>
+  );
 }
