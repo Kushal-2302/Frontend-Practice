@@ -43,6 +43,10 @@ function App() {
     console.log(del);
   }
 
+  function handleEditTodo(id){
+    
+  }
+
 
   return (
     <div className="todo">
